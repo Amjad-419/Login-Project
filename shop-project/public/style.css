@@ -1,0 +1,562 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,200&family=Ubuntu&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+    
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image:linear-gradient(rgba(224, 38, 28, 0.674),rgba(0, 145, 255, 0.614)),url('lo.jpg') ;
+    background-size: cover;
+ 
+    background-position: center;
+    
+    
+
+ }
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+.logo{
+    font-size: 2rem ;
+    color:rgba(227, 32, 10, 0.858);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 5PX;
+}
+
+.logo ion-icon{
+    color: rgba(12, 40, 78, 0.913);
+    font-size: 2rem;
+}
+.navigtion{
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    gap: 25px;
+    flex-wrap: wrap;
+    z-index: 1000;
+
+
+}
+.navigtion a{
+    position: relative;
+    font-size: 1rem;
+    color: aliceblue;
+    text-decoration: none;
+    font-weight: 500;
+    
+}
+.chat{
+    position: relative;
+    top: -2px;
+    left: 3px;
+    font-size: 18px;
+}
+.navigtion a::after{
+    content:'';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color:rgb(245, 43, 43);
+    bottom: -6px;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform .5s;
+    
+}
+.navigtion a:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+.btnlogin-popup{
+    padding: 8px 15px;
+    font-size: 1rem;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 40px ;
+    transition: .5s;
+}
+
+.btnlogin-popup:hover{
+    color:  rgb(12, 39, 78);
+    border-color: rgb(12, 39, 78);
+  
+}
+ 
+.contanier{
+    position: relative;
+    top: 80px;
+    background-color:transparent;
+    width: 350px;
+    max-width: 90%;
+    border: 2px solid rgba(255, 255, 255, 0.418);
+    border-radius: 20px;
+    backdrop-filter: blur(22px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+    transform: scale(0);
+    transition: transform .5s ease ,height .2s ease; 
+    z-index: 2000;
+    
+    
+}
+.contanier.active-popup{
+    transform: scale(1);
+}
+
+.contanier.active{
+    min-height: 40;
+}
+.contanier .form-box{
+    padding: 30px;
+}
+.icon-close{
+    font-size: 1.5rem;
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgb(12, 39, 78);
+    width: 45px;
+    height: 45px;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1;
+    transition: .4s;
+}
+.contanier .form-box.login{
+    transition: transform .18s ease;
+    transform:  translateX(0);
+}
+
+.contanier.active .form-box.login{ 
+    transition: none;
+    transform: translateX(-400px);
+
+}
+
+.contanier .form-box.register{
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+
+}
+
+.contanier.active .form-box.register{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    margin: 20px 0;
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    font-size: 1em;
+    color:white;
+    pointer-events: none;
+    transition: .4s;
+    
+
+}
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -5px;
+
+}
+
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: white;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+
+.input-box .icon{
+    color:rgba(192, 32, 32, 0.968); 
+    font-size: 1.2em;
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    line-height: 57px;
+}
+
+.remmber-forget{
+    font-size: .9em;
+    color: white;
+    font-weight: 500;
+    margin: -10px 0 15px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.remmber-forget label input{
+    accent-color:rgb(12, 39, 78);
+    margin-right:3px;
+
+}
+
+.remmber-forget a{
+    color: white;
+    text-decoration: none;
+}
+
+.remmber-forget a:hover{
+    color: rgb(12, 39, 78);
+    text-decoration: underline;
+}
+
+.btn{
+    width: 100%;
+    height: 50px;
+    background-color:rgba(200, 21, 21, 0.756) ;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: .5s;
+}
+.btn:hover{
+    background-color:transparent;
+    border: 2px solid rgb(12, 39, 78);
+    color:rgb(12, 39, 78);
+    
+}
+
+.login-register{
+    font-size: .9em;
+    color: white;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.login-register p a{
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    padding-left: 3px;
+}
+.login-register p a:hover{
+    color:  rgb(12, 39, 78);
+}
+
+
+.icon-close:hover{
+    color: rgb(12, 39, 78);
+    font-size: 22px;
+}
+
+.menu-toggle {
+    display: none;
+}
+/* Für das Handy*/
+@media (max-width: 768px) {
+    header {
+    
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+    .menu-toggle {
+    display: block;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    }
+
+    .navigtion {
+        position: absolute;
+        top: 70px;
+        right: -100%;
+        width: 100%;
+        background: rgba(12, 39, 78, 0.95);
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 0;
+        text-align: center;
+        transition: right 0.4s ease;
+        
+    }
+
+    .navigtion a {
+    font-size: 1.2rem;
+    }
+
+    .navigtion.active {
+    right: 0;
+    }
+
+    .btnlogin-popup {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .contanier {
+        top: 100px;
+        width: 90%;
+
+    }
+}
+
+/* Für den Tablet*/
+@media (max-width: 1024px) {
+    header {
+        padding: 10px 40px;
+    }
+}
+
+
+
+/* ===== Produkte (Shop) ===== */
+.shop-container {
+  padding: 100px 5%;
+  text-align: center;
+}
+
+.shop-container h1 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.product {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+}
+
+.product img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.product h3 {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+.product p {
+  margin: 5px 0 15px;
+  font-weight: bold;
+}
+
+.product button {
+  padding: 10px 15px;
+  background: rgb(12, 39, 78);
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.product button:hover {
+  background: rgba(200, 21, 21, 0.8);
+}
+
+/* ===== Warenkorb (Cart) ===== */
+.cart-container {
+  padding: 100px 5%;
+  color: white;
+  text-align: center;
+}
+
+.cart-container h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  background: rgba(255, 255, 255, 0.1);
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 10px;
+  max-width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-item p {
+  margin: 0;
+}
+
+.cart-item button {
+  padding: 6px 12px;
+  background: rgba(200, 21, 21, 0.8);
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cart-item button:hover {
+  background: rgb(12, 39, 78);
+}
+
+#total-price {
+  margin-top: 25px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.cart-container button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background: rgb(12, 39, 78);
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cart-container button:hover {
+  background: rgba(200, 21, 21, 0.8);
+}
+
+/* Für den Zahl im Warenkorb */
+.cart-link {
+  position: relative;
+  display: inline-block;
+}
+
+#cart-count {
+    background: red;
+    color: white;
+    border-radius: 40%;
+    padding: 2px 6px;
+    font-size: 12px;
+    position: absolute;
+    top: -8px;
+    right: -124x;
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0px; 
+    padding: 10px;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.cart-item p {
+  margin: 0;
+  font-weight: bold;
+}
+.cart-item button {
+    position: relative;
+    top: -8px;
+    background: crimson;
+    color: white;
+    border: none;
+    padding: 5px 10px; 
+    margin-left: 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    font-weight: 500;
+}
+.cart-item button:hover {
+  background: darkred;
+}
+  
+/* Alert */
+.toast-message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  animation: fadeInOut 3s forwards;
+  z-index: 9999;
+}
+
+
+.toast-message.success {
+  background-color: #4caf50; 
+}
+
+.toast-message.error {
+  background-color: #f44336; 
+}
+
+.toast-message.warning {
+  background-color: #ff9800; 
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-20px); }
+  10%, 90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+

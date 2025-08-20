@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Warenkorb</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+      <header>
+    <h2 class="logo"><ion-icon name="cart-outline"></ion-icon>Warenkorb</h2>
+    
+    <div class="menu-toggle" id="menu-toggle">
+      <ion-icon name="menu-outline"></ion-icon>
+    </div>
+        
+    <nav class="navigtion" id="nav">
+        <a href="index.html"><ion-icon name="home-outline"></ion-icon>Home</a>
+        <a href="produkte.html">Produkte</a>
+        <a href="#"><ion-icon name="people-outline"></ion-icon>Service</a>
+        <a href="cart.html"><ion-icon name="cart-outline"></ion-icon>Warenkorb<span id="cart-count">0</span></a>
+        <a href="">Contact<ion-icon name="chatbox-outline" class="chat"></ion-icon></a>
+    </nav>
+  </header>
+
+  <div class="cart-container">
+    <h1>🛒 Dein Warenkorb</h1>
+    <div id="cart-items" class="cart-items"></div>
+    <p id="total-price">Gesamtpreis: 0€</p>
+    <button onclick="clearCart()">Warenkorb leeren</button>
+  </div>
+
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
