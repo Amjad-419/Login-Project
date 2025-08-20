@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Poppins,sans-serif;
+    font-family: Poppins, sans-serif;
     
 }
 
@@ -14,6 +14,7 @@ body{
     min-height: 100vh;
     background-image:linear-gradient(rgba(224, 38, 28, 0.674),rgba(0, 145, 255, 0.614)),url('lo.jpg') ;
     background-size: cover;
+ 
     background-position: center;
     
     
@@ -25,54 +26,57 @@ header{
     top: 0;
     left: 0;
     width: 100%;
-    padding: 10px 100px;
+    padding: 10px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 99;
+    z-index: 1000;
 }
 .logo{
-    padding: 0 20px ;
-    font-size: 40px;
+    font-size: 2rem ;
     color:rgba(227, 32, 10, 0.858);
     letter-spacing: 1px;
-    user-select: none;
     text-transform: uppercase;
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 5PX;
 }
 
 .logo ion-icon{
     color: rgba(12, 40, 78, 0.913);
-    font-size: 40px;
-    position: relative;
-    top: 5px;
+    font-size: 2rem;
 }
 .navigtion{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items:center ;
+    gap: 25px;
+    flex-wrap: wrap;
+    z-index: 1000;
+
 
 }
 .navigtion a{
     position: relative;
-    font-size: 18px;
+    font-size: 1rem;
     color: aliceblue;
     text-decoration: none;
     font-weight: 500;
-    margin-left: 50px;
+    
 }
 .chat{
     position: relative;
-    top: -6px;
+    top: -2px;
     left: 3px;
-    font-size: 20px;
+    font-size: 18px;
 }
 .navigtion a::after{
     content:'';
     position: absolute;
     left: 0;
     width: 100%;
-    height: 3px;
+    height: 2px;
     background-color:rgb(245, 43, 43);
     bottom: -6px;
     border-radius: 5px;
@@ -85,14 +89,12 @@ header{
     transform: scaleX(1);
 }
 .btnlogin-popup{
-    width: 70px;
-    height: 35px;
-    font-size: 16px;
+    padding: 8px 15px;
+    font-size: 1rem;
     background-color: transparent;
     color: white;
     border: 2px solid white;
     border-radius: 5px;
-    outline: none;
     cursor: pointer;
     margin-left: 40px ;
     transition: .5s;
@@ -100,17 +102,16 @@ header{
 
 .btnlogin-popup:hover{
     color:  rgb(12, 39, 78);
-    background-color:transparent;
     border-color: rgb(12, 39, 78);
-    font-size: 18px;
+  
 }
  
 .contanier{
     position: relative;
-    top:25px;
+    top: 80px;
     background-color:transparent;
-    width: 400px;
-    height: 380px;
+    width: 350px;
+    max-width: 60%;
     border: 2px solid rgba(255, 255, 255, 0.418);
     border-radius: 20px;
     backdrop-filter: blur(22px);
@@ -121,6 +122,8 @@ header{
     overflow: hidden; 
     transform: scale(0);
     transition: transform .5s ease ,height .2s ease; 
+    z-index: 2000;
+    
     
 }
 .contanier.active-popup{
@@ -128,19 +131,17 @@ header{
 }
 
 .contanier.active{
-    height: 440px;
+    min-height: 40;
 }
 .contanier .form-box{
-
-    width: 100%;
-    padding: 40px;
+    padding: 30px;
 }
 .icon-close{
-    font-size: 1.7em;
+    font-size: 1.5rem;
     color: white;
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 0;
+    right: 0;
     background-color: rgb(12, 39, 78);
     width: 45px;
     height: 45px;
@@ -180,7 +181,7 @@ header{
     width: 100%;
     height: 50px;
     border-bottom: 2px solid rgb(255, 255, 255);
-    margin: 30px 0;
+    margin: 20px 0;
 }
 
 .input-box label{
@@ -190,7 +191,6 @@ header{
     font-size: 1em;
     color:white;
     pointer-events: none;
-    font-weight: 500;
     transition: .4s;
     
 
@@ -217,7 +217,7 @@ header{
 
 .input-box .icon{
     color:rgba(192, 32, 32, 0.968); 
-    font-size: 17px;
+    font-size: 1.2em;
     position: absolute;
     right: 8px;
     font-size: 1.2em;
@@ -228,9 +228,10 @@ header{
     font-size: .9em;
     color: white;
     font-weight: 500;
-    margin: -15px 0 15px;
+    margin: -10px 0 15px;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .remmber-forget label input{
@@ -251,23 +252,19 @@ header{
 
 .btn{
     width: 100%;
-    height: 55px;
+    height: 50px;
     background-color:rgba(200, 21, 21, 0.756) ;
     color: white;
     border: none;
-    outline: none;
-    font-size: 25px;
-    letter-spacing: 2px;
+    font-size: 1.2rem;
     font-weight: 600;
     cursor: pointer;
     border-radius: 10px;
-    transition: .8s;
+    transition: .5s;
 }
 .btn:hover{
     background-color:transparent;
     border: 2px solid rgb(12, 39, 78);
-    border-radius: 10px;
-    font-size: 28px;
     color:rgb(12, 39, 78);
     
 }
@@ -276,8 +273,7 @@ header{
     font-size: .9em;
     color: white;
     text-align: center;
-    font-weight: 500;
-    margin: 40px 0;
+    margin: 20px 0;
 }
 
 .login-register p a{
@@ -285,12 +281,9 @@ header{
     color: white;
     font-weight: 600;
     padding-left: 3px;
-    letter-spacing: 0.5px;
-    font-size: 17px;
 }
 .login-register p a:hover{
     color:  rgb(12, 39, 78);
-    text-decoration: underline;
 }
 
 
@@ -298,4 +291,64 @@ header{
     color: rgb(12, 39, 78);
     font-size: 22px;
 }
+
+.menu-toggle {
+    display: none;
+}
+/* Für das Handy*/
+@media (max-width: 768px) {
+    header {
+    
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+    .menu-toggle {
+    display: block;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    }
+
+    .navigtion {
+        position: absolute;
+        top: 70px;
+        right: -100%;
+        width: 100%;
+        background: rgba(12, 39, 78, 0.95);
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 0;
+        text-align: center;
+        transition: right 0.4s ease;
+        
+    }
+
+    .navigtion a {
+    font-size: 1.2rem;
+    }
+
+    .navigtion.active {
+    right: 0;
+    }
+
+    .btnlogin-popup {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .contanier {
+        top: 100px;
+        width: 90%;
+
+    }
+}
+
+/* Für den Tablet*/
+@media (max-width: 1024px) {
+    header {
+        padding: 10px 40px;
+    }
+}
+
+
 
