@@ -111,7 +111,7 @@ header{
     top: 80px;
     background-color:transparent;
     width: 350px;
-    max-width: 60%;
+    max-width: 90%;
     border: 2px solid rgba(255, 255, 255, 0.418);
     border-radius: 20px;
     backdrop-filter: blur(22px);
