@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produkte</title>
+    <title>Kontakt</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,35 +16,32 @@
         
         <nav class="navigtion" id="nav">
             <a href="index.html"><ion-icon name="home-outline"></ion-icon>Home</a>
+            <a href="produkte.html">Produkte</a>
             <a href="services.html"><ion-icon name="people-outline"></ion-icon>Service</a>
             <a href="cart.html"><ion-icon name="cart-outline"></ion-icon>Warenkorb<span id="cart-count">0</span></a>
             <a href="contact.html">Contact<ion-icon name="chatbox-outline" class="chat"></ion-icon></a>
+            <button class="btnlogin-popup">Login</button>
         </nav>
     </header>
 
-    <main class="shop-container">
-        <h1>Unsere Bücher</h1>
-        <div class="products">
-            <div class="product">
-                <img src="book1.png" alt="Book 1">
-                <h3>JavaScript für Einsteiger</h3>
-                <p>Preis: 20€</p>
-                <button onclick="addToCart('JavaScript für Einsteiger', 19)">In den Warenkorb</button>
-            </div>
-            <div class="product">
-                <img src="book1.png" alt="Book 2">
-                <h3>HTML & CSS Basics</h3>
-                <p>Preis: 10€</p>
-                <button onclick="addToCart('HTML & CSS Basics', 15)">In den Warenkorb</button>
-            </div>
-            <div class="product">
-                <img src="book1.png" alt="Book 3">
-                <h3>Python Crashkurs</h3>
-                <p>reis: 15€</p>
-                <button onclick="addToCart('Python Crashkurs', 25)">In den Warenkorb</button>
-            </div>
-        </div>
-    </main>
+<section class="contact-wrapper">
+  <div class="contact-info">
+      <p>📧 Email: support@meinshop.de</p>
+      <p>📞 Telefon: +49 123 456 789</p>
+      <p>📍 Adresse: Berlin, Deutschland</p>
+  </div>
+
+  <div class="contact-form">
+      <h3>Schreiben Sie uns</h3>
+      <form action="/send-message" method="POST">
+          <input type="text" name="name" placeholder="Ihr Name"  required>
+          <input type="email" name="email" placeholder="Ihre Email" required>
+          <textarea name="message" placeholder="Ihre Nachricht" required></textarea>
+          <button type="submit">Senden</button>
+      </form>
+  </div>
+</section>
+
 
     <script src="script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
