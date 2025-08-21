@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ---------------- Cart mit Backend ----------------
 
-// ✅ Produkt hinzufügen
+// Produkt hinzufügen
 async function addToCart(name, price) {
   try {
     const response = await fetch("/cart"
@@ -66,41 +66,49 @@ async function addToCart(name, price) {
   }
 }
 
-// ✅ Warenkorb anzeigen
+//  Warenkorb anzeigen
 async function renderCart() {
   try {
     const response = await fetch("/cart");
     const cart = await response.json();
 
-    let cartItemsDiv = document.getElementById("cart-items");
-    let totalPrice = 0;
-    if (!cartItemsDiv) return;
-
-    cartItemsDiv.innerHTML = "";
-    if (cart.length === 0) {
-      cartItemsDiv.innerHTML = "<p>Ihr Warenkorb ist leer.</p>";
-    } else {
-      cart.forEach((item, index) => {
-        totalPrice += item.price;
-        cartItemsDiv.innerHTML += `
-          <div class="cart-item">
-            <p>${item.name}  ${item.price}€</p>
-            <button onclick="removeFromCart(${index})">Entfernen</button>
-          </div>
-        `;
-      });
-    }
-
-    const totalElement = document.getElementById("total-price");
-    if (totalElement) {
-      totalElement.textContent = "Gesamt: " + totalPrice + "€";
-    }
-
+    // in alle Seiten
     updateCartCount(cart);
+
+    // nur Warenkorb
+    let cartItemsDiv = document.getElementById("cart-items");
+    if (cartItemsDiv) {
+      let totalPrice = 0;
+      cartItemsDiv.innerHTML = "";
+
+      if (cart.length === 0) {
+        cartItemsDiv.innerHTML = "<p>Ihr Warenkorb ist leer.</p>";
+      } else {
+        cart.forEach((item, index) => {
+          totalPrice += item.price;
+          cartItemsDiv.innerHTML += `
+            <div class="cart-item">
+              <p>${item.name} ${item.price}€</p>
+              <button onclick="removeFromCart(${index})">Entfernen</button>
+            </div>
+          `;
+        });
+      }
+
+      const totalElement = document.getElementById("total-price");
+      if (totalElement) {
+        totalElement.textContent = "Gesamt: " + totalPrice + "€";
+      }
+    }
   } catch (error) {
     console.error("Fehler beim Rendern:", error);
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderCart(); // Die Zahl von Warenkorb Aktullieseren
+});
+
 
 // ✅ Produkt entfernen
 async function removeFromCart(index) {
