@@ -14,19 +14,15 @@ app.use(express.static(path.join(__dirname, "public"))); // Frontend bereitstell
 
 // -------------------- Verbindung zur MySQL-Datenbank --------------------
 const db = mysql.createConnection({
-  host: "localhost",     // Standard: Lokaler Server
-  user: "root",          // Standard-Benutzer
-  password: "",          // Passwort (leer, falls nicht gesetzt)
-  database: "shopdb"     // Name der Datenbank
+  host: process.env.DB_HOST,     //  Server
+  user: process.env.DB_USER,     // Benutzer
+  password: process.env.DB_PASS,          // Passwort
+  database: process.env.DB_PORT || 5432    // Name der Datenbank
 });
 
-db.connect((err) => {
-  if (err) {
-    console.error("❌ Fehler bei der Verbindung mit MySQL:", err);
-  } else {
-    console.log("✅ Erfolgreich mit MySQL verbunden!");
-  }
-});
+pool.connect()
+  .then(() => console.log("✅ Connected to PostgreSQL"))
+  .catch(err => console.error("❌ PostgreSQL connection error:", err));
 
 // -------------------- Cart (Warenkorb) --------------------
 let cart = [];
