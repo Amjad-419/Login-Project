@@ -2,7 +2,7 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
-const mysql = require("mysql2");
+const { Pool } = require("pg"); // PostgreSQL
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -13,22 +13,26 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public"))); // Frontend bereitstellen
 
 // -------------------- Verbindung zur MySQL-Datenbank --------------------
-const db = mysql.createConnection({
-  host: process.env.DB_HOST,     //  Server
-  user: process.env.DB_USER,     // Benutzer
-  password: process.env.DB_PASS,          // Passwort
-  database: process.env.DB_PORT || 5432    // Name der Datenbank
+const pool = new Pool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT || 5432
 });
 
 pool.connect()
-  .then(() => console.log("✅ Connected to PostgreSQL"))
-  .catch(err => console.error("❌ PostgreSQL connection error:", err));
+  .then(() => console.log("Connected to PostgreSQL"))
+  .catch(err => {
+    console.error("PostgreSQL connection error:", err);
+    process.exit(1);
+  });
 
 // -------------------- Cart (Warenkorb) --------------------
 let cart = [];
 
 // Produkt hinzufügen
-app.post("/cart", (req, res) => {
+app.post("/cart",async (req, res) => {
   const { name, price } = req.body;
   if (!name || !price) {
     return res.status(400).json({ message: "Name und Preis erforderlich!" });
@@ -61,7 +65,7 @@ app.delete("/cart", (req, res) => {
 
 // -------------------- Test-Route --------------------
 app.get("/api/test", (req, res) => {
-  res.json({ nachricht: "Backend läuft und MySQL ist verbunden!" });
+  res.json({ nachricht: "Backend läuft und PostgreSQL ist verbunden!" });
 });
 
 // -------------------- Server starten --------------------
