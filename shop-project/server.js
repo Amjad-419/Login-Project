@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public"))); // Frontend bereitstellen
 
-// -------------------- Verbindung zur MySQL-Datenbank --------------------
+// -------------------- Verbindung zur PostgreSQL-Datenbank --------------------
 const pool = new Pool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -42,8 +42,8 @@ app.post("/cart",async (req, res) => {
 });
 
 // Alle Produkte abrufen
-app.get("/cart", (req, res) => {
-  res.json(cart);
+app.get("/cart", async (req, res) => {
+  res.json({ nachricht: "Backend läuft und PostgreSQL ist verbunden!" });
 });
 
 // Produkt nach Index entfernen
